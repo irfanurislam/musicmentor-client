@@ -11,10 +11,15 @@ const NavBar = () => {
       </li>
 
       <li>
-        <Link to="/alltoys">All toys</Link>
+        <Link to="/instructor">Instructor</Link>
       </li>
       <li>
-        <Link to="/blogs">Blogs</Link>
+        <Link to="/classes">Classes</Link>
+      </li>
+
+      {/* TODO list when user here  */}
+      <li>
+        <Link to="/dashboard">DashBoard</Link>
       </li>
       
     </>
@@ -23,7 +28,7 @@ const NavBar = () => {
   return (
     <div className="mt-10">
       <div className="navbar bg-base-100">
-        <div className="navbar-start">
+        <div className="">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -49,9 +54,9 @@ const NavBar = () => {
              {listItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link className="btn btn-ghost normal-case text-xl">Melody Mentor</Link>
         </div>
-        <div className="navbar-start hidden lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">
         
             {listItems}
@@ -63,7 +68,7 @@ const NavBar = () => {
       
         
         <>
-        <Link to='/signup'> <button className="btn btn-primary">Sign Up</button></Link>
+        <Link to='/signup'> <button className="btn btn-primary btn-md">Sign Up</button></Link>
         </>
        
         </div>
