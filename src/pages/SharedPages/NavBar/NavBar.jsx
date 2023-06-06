@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+
+
+
+
+
+
+
   const listItems = (
     <>
       <li>
@@ -26,7 +33,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="mt-10">
+    <div className='mt-10 '>
       <div className="navbar bg-base-100">
         <div className="">
           <div className="dropdown">
@@ -65,7 +72,9 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-      
+        <button className="btn btn-primary btn-md" onClick={handleToggle}>
+            Toggle Color
+          </button>
         
         <>
         <Link to='/signup'> <button className="btn btn-primary btn-md">Sign Up</button></Link>
