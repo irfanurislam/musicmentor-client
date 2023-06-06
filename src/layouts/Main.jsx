@@ -5,7 +5,7 @@ import Footer from '../pages/SharedPages/Footer/Footer';
 
 const Main = () => {
     return (
-        <div className='bg-black px-10 text-white'>
+        <div className='bg-black px-10'>
             <NavBar></NavBar>
             <Outlet></Outlet>
             <Footer></Footer>

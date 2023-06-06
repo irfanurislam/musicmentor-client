@@ -3,11 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../Providers/AuthProviders";
 
-
 const SignUp = () => {
   const { newCreateUser, logOut } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -19,9 +18,8 @@ const SignUp = () => {
     const password = form.password.value;
     setError("");
 
-    if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(gmail)+(?:\.com)*$/.test(email)){
-    return setError('please valid email')
-      
+    if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(gmail)+(?:\.com)*$/.test(email)) {
+      return setError("please valid email");
     }
 
     if (/^(?=.*[A-Z]).+$/.test(password)) {
@@ -38,7 +36,7 @@ const SignUp = () => {
         updateUser(result?.user, name, photo);
 
         logOut();
-        navigate('/login')
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error.message);
@@ -62,7 +60,6 @@ const SignUp = () => {
 
   return (
     <div className="mt-10">
-     
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center">
@@ -80,6 +77,30 @@ const SignUp = () => {
                     type="text"
                     name="name"
                     placeholder="your Name "
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                <label className="label">
+                    <span className="label-text">Gender</span>
+                  </label>
+                  <select name="gender" required className="select select-bordered w-full max-w-xs">
+                    <option disabled selected>
+                      Gender
+                    </option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Mobile No</span>
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    name="number"
+                    placeholder="Number"
                     className="input input-bordered"
                   />
                 </div>
@@ -104,6 +125,18 @@ const SignUp = () => {
                     type="url"
                     name="photo"
                     placeholder="Photo url"
+                    className="input input-bordered"
+                  />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Address</span>
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    name="address"
+                    placeholder="address"
                     className="input input-bordered"
                   />
                 </div>
