@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 text-black">
        
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
@@ -95,7 +95,7 @@ const Login = () => {
                   </Link>
                 </p>
 
-                <div className="divider">OR</div>
+                <div className="divider">Another Social </div>
               </div>
             </form>
            <div className="mb-8 px-8">
