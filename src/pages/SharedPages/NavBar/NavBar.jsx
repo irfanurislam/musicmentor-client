@@ -72,9 +72,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-        <button className="btn btn-primary btn-md" onClick={handleToggle}>
-            Toggle Color
-          </button>
+     
         
         <>
         <Link to='/signup'> <button className="btn btn-primary btn-md">Sign Up</button></Link>
