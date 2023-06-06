@@ -7,12 +7,17 @@ import {
 } from "react-router-dom";
 import './index.css'
 import { router } from './Routes/Routes.jsx';
+import AuthProviders from './Providers/AuthProviders.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className='px-10'>
+
+    <div className=''>
+      <AuthProviders>
       <RouterProvider router={router} />
+      </AuthProviders>
+     
     </div>
    
   </React.StrictMode>,
