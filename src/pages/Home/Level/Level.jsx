@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fade } from 'react-awesome-reveal';
 
 const Level = () => {
     return (
@@ -6,7 +7,13 @@ const Level = () => {
             <div className="container mx-auto">
       <div className='text-center'>
       <h2 className="text-2xl font-bold mb-4">What it Is your Level? </h2>
-      <p className='text-gray-700 text-base' >We Will Adapt the Your Level</p>
+    
+      <p className='text-gray-700 text-base' >
+      <Fade delay={1e1} cascade damping={1e-1}>
+        We Will Adapt the Your Level
+        </Fade>
+        </p>
+     
       </div>
 
       <div className="grid md:grid-cols-3 grid-cols-1 gap-4 mt-10">
