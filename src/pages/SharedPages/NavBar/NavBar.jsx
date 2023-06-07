@@ -30,10 +30,10 @@ const NavBar = () => {
       </li>
 
       <li>
-        <Link to="/instructor">Instructor</Link>
+        <Link to="/instructors">Instructor</Link>
       </li>
       <li>
-        <Link to="/classes">Classes</Link>
+        <Link to="/classespage">Classes</Link>
       </li>
 
       {/* TODO list when user here  */}
