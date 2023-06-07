@@ -9,6 +9,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import Login from "../pages/Login/Login";
 import Instructors from "../pages/Instructors/Instructors";
 import ClassesPage from "../pages/ClassesPage/ClassesPage"
+import Dashboard from "../layouts/Dashboard";
 
  export const router = createBrowserRouter([
     {
@@ -46,5 +47,21 @@ import ClassesPage from "../pages/ClassesPage/ClassesPage"
     
     ]
     },
+
+    {
+      path: '/dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: '/dashboard/adminhome',
+          element: <></>,
+        }
+      ]
+    }
+
+
+
+
+
   ]);
 
