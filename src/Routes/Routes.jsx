@@ -13,6 +13,7 @@ import Dashboard from "../layouts/Dashboard";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import PrivateRouters from "./PrivateRouters";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
+import MyClasses from "../pages/Dashboard/MyClass/MyClass";
 
  export const router = createBrowserRouter([
     {
@@ -62,6 +63,10 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
         {
           path: 'addclass',
           element: <AddClass></AddClass>,
+        },
+        {
+          path: 'myclass',
+          element: <MyClasses></MyClasses>,
         },
       ]
     }
