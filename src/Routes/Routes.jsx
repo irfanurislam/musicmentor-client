@@ -53,7 +53,7 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 
     {
       path: '/dashboard',
-      element: <PrivateRouters><Dashboard></Dashboard></PrivateRouters>,
+      element: <Dashboard></Dashboard>,
       children: [
         {
           path: 'adminhome',
