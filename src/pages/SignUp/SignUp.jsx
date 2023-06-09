@@ -1,68 +1,21 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { newCreateUser, logOut } = useContext(AuthContext);
+  const { newCreateUser, logOut,updateUserProfile } = useContext(AuthContext);
   const [error,setError] = useState('')
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  //   const handleSignUp = (event) => {
-  //     event.preventDefault();
-
-  //     const form = event.target;
-  //     const name = form.name.value;
-  //     const photo = form.photo.value;
-  //     const email = form.email.value;
-  //     const password = form.password.value;
-  //     setError("");
-
-  //     if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(gmail)+(?:\.com)*$/.test(email)) {
-  //       return setError("please valid email");
-  //     }
-
-  //     if (/^(?=.*[A-Z]).+$/.test(password)) {
-  //       return setError("Password: No one least  UpperCase");
-  //     }
-  //     if (password.length < 6) {
-  //       return setError("The password must be contain 6 Word");
-  //     }
-  //     console.log(name, photo, email, password);
-  //     newCreateUser(email, password)
-  //       .then((result) => {
-  //         const logNewUser = result.user;
-  //         console.log(logNewUser);
-  //         updateUser(result?.user, name, photo);
-
-  //         logOut();
-  //         navigate("/login");
-  //       })
-  //       .catch((error) => {
-  //         console.log(error.message);
-  //         setError(error.message);
-  //       });
-
-  //     const updateUser = (user, name, photo) => {
-  //       updateProfile(user, {
-  //         displayName: name,
-  //         photoURL: photo,
-  //       })
-  //         .then(() => {
-  //           console.log("user name updated");
-  //         })
-  //         .catch((error) => {
-  //           console.log(error.message);
-  //           setError(error.message);
-  //         });
-  //     };
-  //   };
 
   // react hook apply
 
@@ -78,35 +31,62 @@ const SignUp = () => {
         .then((result) => {
           const logNewUser = result.user;
           console.log(logNewUser);
-          updateUser(result?.user, name, photo,number,gender,address);
+          // updateUser(result?.user, name, photo,number,gender,address)
+          updateUserProfile(name, photo)
+          .then( ()=> {
+            const savedUser = {name,email,gender}
+            console.log('user updated')
+            fetch('http://localhost:5000/users',{
+              method: 'POST',
+              headers: {
+                  'content-type': 'application/json'
+              },
+              body: JSON.stringify(savedUser)
+            })
+            .then(res => res.json())
+            .then(data => {
+              console.log(data)
+              if(data.insertedId){
+                reset();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User created successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
 
-          logOut();
-          navigate("/login");
-        })
+                navigate("/");
+
+              }
+            })
+
+
+
+
+
+
+
+          
+          })
+
+
+          // logOut();
+           
         .catch((error) => {
           console.log(error.message);
           setError(error.message)
         });
+          
+        })
+
+       
 
 
-        const updateUser = (user, name, photo,gender,number,address) => {
-                updateProfile(user, {
-                  displayName: name,
-                  gender: gender,
-                  number: number,
-                  photoURL: photo,
-                  address: address
-                })
-                  .then(() => {
-                    console.log("user name updated");
-                  })
-                  .catch((error) => {
-                    console.log(error.message);
-                    setError(error.message)
-                  });
-              };
+       
       
   };
+
 
   return (
     <div className="mt-10">
