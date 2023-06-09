@@ -40,7 +40,7 @@ const NavBar = () => {
 
       {/* TODO list when user here  */}
       <li>
-        <Link to="/dashboard">DashBoard</Link>
+        <Link to="/dashboard/mycart">DashBoard</Link>
       </li>
       <li>
         <Link to="/dashboard/mycart">

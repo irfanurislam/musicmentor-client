@@ -8,10 +8,12 @@ import {
   FaBook,
   FaUsers,
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // TODO: load data from the server to have dynamic isAdmin based on Data
   // const isAdmin = true;
+  const isAdmin = useAdmin()
 
   return (
     <div className="drawer lg:drawer-open">
@@ -31,7 +33,9 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          <li>
+          { isAdmin ?
+            <>
+            <li>
             <NavLink to="/dashboard/adminhome">
               <FaHome></FaHome> Admin Home
             </NavLink>
@@ -47,10 +51,9 @@ const Dashboard = () => {
             </NavLink>
           </li>
           
-         
-          
-          {/* user */}
-          <li>
+            </> : <>
+            
+            <li>
             <NavLink to="/dashboard/selectedclasses">
               <FaUsers></FaUsers> All Users
             </NavLink>
@@ -66,6 +69,17 @@ const Dashboard = () => {
               <FaWallet></FaWallet> Payment History
             </NavLink>
           </li>
+            
+            
+            </>
+
+
+
+          }
+         
+          
+          {/* user */}
+         
           {/* instructor */}
           <li>
             <NavLink to="/dashboard/addclass">

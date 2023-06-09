@@ -56,7 +56,7 @@ import ManageUser from "../pages/Dashboard/ManageUser/ManageUser";
 
     {
       path: '/dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRouters><Dashboard></Dashboard></PrivateRouters>,
       children: [
         {
           path: 'adminhome',
