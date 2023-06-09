@@ -3,11 +3,14 @@ import 'tailwindcss/tailwind.css';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { json, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useBooked from '../../hooks/useBooked';
 
 function ClassesPage() {
   const [classes, setClasses] = useState([]);
   const navigate = useNavigate()
   const location = useLocation()
+
+  const [cart, refetch] = useBooked();
   // user
   const {user} = useContext(AuthContext)
 
@@ -44,14 +47,13 @@ function ClassesPage() {
       .then(data =>{
         console.log(data)
         if(data.insertedId ){
+          refetch();
           Swal.fire({
-            title: 'Custom animation with Animate.css',
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            }
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your book succesfully',
+            showConfirmButton: false,
+            timer: 1000
           })
         }
       })

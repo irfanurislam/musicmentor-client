@@ -61,8 +61,8 @@ const Dashboard = () => {
           </li>
 
           <li>
-            <NavLink to="/dashboard/enrolledclasses">
-              <FaHome></FaHome> User Home
+            <NavLink to="/dashboard/mycart">
+              <FaShoppingCart></FaShoppingCart> MyCart
             </NavLink>
           </li>
           <li>

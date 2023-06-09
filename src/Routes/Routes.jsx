@@ -14,6 +14,7 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import PrivateRouters from "./PrivateRouters";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClasses from "../pages/Dashboard/MyClass/MyClass";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
  export const router = createBrowserRouter([
     {
@@ -67,6 +68,10 @@ import MyClasses from "../pages/Dashboard/MyClass/MyClass";
         {
           path: 'myclass',
           element: <MyClasses></MyClasses>,
+        },
+        {
+          path: 'mycart',
+          element: <MyCart></MyCart>,
         },
       ]
     }
