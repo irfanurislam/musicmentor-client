@@ -37,8 +37,8 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dashboard/Manageclass">
-              <FaHome></FaHome> manage class
+            <NavLink to="/dashboard/manageuser">
+              <FaHome></FaHome> Manage User
             </NavLink>
           </li>
           <li>
@@ -46,11 +46,7 @@ const Dashboard = () => {
               <FaHome></FaHome> Addclass
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/dashboard/manageuser">
-              <FaHome></FaHome> manage users
-            </NavLink>
-          </li>
+          
          
           
           {/* user */}

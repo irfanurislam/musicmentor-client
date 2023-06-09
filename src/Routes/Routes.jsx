@@ -15,6 +15,7 @@ import PrivateRouters from "./PrivateRouters";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClasses from "../pages/Dashboard/MyClass/MyClass";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
+import ManageUser from "../pages/Dashboard/ManageUser/ManageUser";
 
  export const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ import MyCart from "../pages/Dashboard/MyCart/MyCart";
         {
           path: 'mycart',
           element: <MyCart></MyCart>,
+        },
+        {
+          path: 'manageuser',
+          element: <ManageUser></ManageUser>,
         },
       ]
     }
