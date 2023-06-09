@@ -1,8 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'tailwindcss/tailwind.css';
+import { AuthContext } from '../../Providers/AuthProviders';
+import { json, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function ClassesPage() {
   const [classes, setClasses] = useState([]);
+  const navigate = useNavigate()
+  const location = useLocation()
+  // user
+  const {user} = useContext(AuthContext)
 
   useEffect(() => {
    fetch('http://localhost:5000/myclass')
@@ -14,6 +21,61 @@ function ClassesPage() {
   }, []);
 
 
+  // handle cart
+
+
+  const handleAddToCart = (classItem) =>{
+    console.log(classItem)
+    const {_id,classImage,className,instructorName,seats,price} = classItem
+   
+
+    if(user && user?.email){
+          const bookedClass = {classId:_id,classImage,className,seats,price,instructorName,email: user?.email}
+
+
+      fetch(`http://localhost:5000/carts`,{
+        method: 'POST',
+        headers: {
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(bookedClass)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data)
+        if(data.insertedId ){
+          Swal.fire({
+            title: 'Custom animation with Animate.css',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
+        }
+      })
+    }
+    else{
+        
+      Swal.fire({
+        title: 'please login to add cart',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, login Now'
+      }).then((result) => {
+        if (result.isConfirmed) {
+         navigate('/login',{state: {from: location}})
+        }
+      })
+
+
+    }
+
+  }
 
   const handleSelect = (classId) => {
     // Handle the selection of a class
@@ -23,7 +85,7 @@ function ClassesPage() {
   const renderClasses = () => {
     return classes.map((classItem) => (
       <tr
-        key={classItem.id}
+        key={classItem._id}
         className={`${classItem.seats === 0 ? 'bg-red-700' : ''}`}
       >
         <td>
@@ -35,13 +97,13 @@ function ClassesPage() {
         </td>
         <td>{classItem.className}</td>
         <td>{classItem.instructorName}</td>
-        <td>{classItem.seats}</td>
+        <td className='text-center'>{classItem.seats}</td>
         <td>${classItem.price}</td>
         <td>
           <button
             className="btn btn-primary"
             disabled={classItem.seats === 0}
-            onClick={() => handleSelect(classItem.id)}
+            onClick={() => handleAddToCart(classItem)}
           >
             Select
           </button>
@@ -60,8 +122,8 @@ function ClassesPage() {
             <th>Class Image</th>
             <th>Class Name</th>
             <th>Instructor Name</th>
-            <th>Instructor Email</th>
-            <th>Available Seats</th>
+            <th>Available seats</th>
+            <th>price</th>
             <th>Actions</th>
           </tr>
         </thead>

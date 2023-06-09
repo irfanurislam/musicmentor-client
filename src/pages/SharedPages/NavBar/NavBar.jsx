@@ -2,9 +2,11 @@ import React, { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { Tooltip } from "react-tooltip";
+import { FaShoppingCart } from "react-icons/fa";
+import useBooked from "../../../hooks/useBooked";
 
 const NavBar = () => {
-
+ const [cart] = useBooked()
   const {user,logOut} = useContext(AuthContext)
 
   const handleLogOut = () =>{
@@ -39,6 +41,14 @@ const NavBar = () => {
       {/* TODO list when user here  */}
       <li>
         <Link to="/dashboard">DashBoard</Link>
+      </li>
+      <li>
+        <Link to="/mycart">
+          <button className="btn btn-xs gap-2">
+          <FaShoppingCart className="text-xl" />
+          <div className="badge badge-secondary">{cart.length || 0}</div>
+          </button>
+        </Link>
       </li>
       
     </>
