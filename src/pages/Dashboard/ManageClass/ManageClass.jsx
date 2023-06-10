@@ -11,14 +11,14 @@ const ManageClass = () => {
           <table className="table w-full">
             <thead>
               <tr className="text-black">
-                <th>Class Image</th>
-                <th>Class Name</th>
-                <th>Instructor Name</th>
-                <th>Instructor Email</th>
-                <th>Available Seats</th>
-                <th>Price</th>
-                <th>Status</th>
-                <th>Feedback</th>
+              <th>Class Image</th>
+              <th>Class Name</th>
+              <th>Instructor Name</th>
+              <th>Instructor Email</th>
+              <th>Available Seats</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Action</th>
                 
               </tr>
             </thead>
