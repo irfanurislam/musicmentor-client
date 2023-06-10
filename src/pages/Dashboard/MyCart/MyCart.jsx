@@ -84,7 +84,7 @@ const MyCart = () => {
                                     {classItem.className}
                                 </td>
                                 <td>
-                                    {classItem.InstructorName}
+                                    {classItem.instructorName}
                                 </td>
                                 <td className="text-end">${classItem.price}</td>
                                 <td className="text-end">${classItem.seats}</td>

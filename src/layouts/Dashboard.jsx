@@ -50,6 +50,11 @@ const Dashboard = () => {
               <FaHome></FaHome> Addclass
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/dashboard/manageclass">
+              <FaHome></FaHome> Manage Class
+            </NavLink>
+          </li>
           
             </> : <>
             
