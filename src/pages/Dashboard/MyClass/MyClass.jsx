@@ -4,14 +4,13 @@ import { AuthContext } from '../../../Providers/AuthProviders';
 const MyClasses = () => {
   const [classes, setClasses] = useState([])
   const {user} = useContext(AuthContext)
-  const instructorEmail = user?.email
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myclass?instructorEmail=${instructorEmail}`)
+    fetch(`http://localhost:5000/myclass?email=${user?.email}`)
       .then((response) => response.json())
       .then((data) => setClasses(data))
       .catch((error) => console.error('Error fetching classes:', error));
-  }, [instructorEmail]);
+  }, []);
 
   return (
     <div className="overflow-x-auto">
@@ -43,8 +42,8 @@ const MyClasses = () => {
                 </div>
               </td>
               <td className="align-middle">{classItem.className}</td>
-              <td className="align-middle">{classItem.instructorName}</td>
-              <td className="align-middle">{classItem.instructorEmail}</td>
+              <td className="align-middle">{classItem.name}</td>
+              <td className="align-middle">{classItem.email}</td>
               <td className="align-middle">{classItem.seats}</td>
               <td className="align-middle">{classItem.price}</td>
               <td className="align-middle">0</td>

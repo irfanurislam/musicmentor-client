@@ -17,13 +17,13 @@ const AddClass = () => {
      const form = event.target
      const className = form.className.value
      const classImage = form.classImage.value
-     const instructorName = form.instructorName.value
-     const instructorEmail = form.instructorEmail.value
+     const name = form.name.value
+     const email = form.email.value
      const seats = form.seats.value
      const price = form.price.value
 
      const newAddClass = {
-      className,classImage,instructorName,instructorEmail,seats:parseFloat(seats),price: parseFloat(price)
+      className,classImage,name,email,seats:parseFloat(seats),price: parseFloat(price)
      }
      
       fetch('http://localhost:5000/addclass',{
@@ -73,15 +73,15 @@ const AddClass = () => {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Instructor Name</span>
+            <span className="label-text"> Name</span>
           </label>
-          <input type="text" name='instructorName' defaultValue={user?.displayName} placeholder="classname" className="input input-bordered" />
+          <input type="text" name='name' defaultValue={user?.displayName} placeholder="classname" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text"> Instructor email</span>
+            <span className="label-text"> email</span>
           </label>
-          <input type="email" name='instructorEmail' defaultValue={user?.email} placeholder="instructor Email " className="input input-bordered" />
+          <input type="email" name='email' defaultValue={user?.email} placeholder="instructor Email " className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">

@@ -33,8 +33,8 @@ const ManageClass = () => {
                     </div>
                   </td>
                   <td>{classItem.className}</td>
-                  <td>{classItem.instructorName}</td>
-                  <td>{classItem.instructorEmail}</td>
+                  <td>{classItem.name}</td>
+                  <td>{classItem.email}</td>
                   <td>{classItem.seats}</td>
                   <td>${classItem.price}</td>
                   <td><button className='btn btn-warning btn-sm'>pending</button></td>

@@ -88,7 +88,7 @@ const {price} = cart
                 classId: cart.classId,
                 status: 'pending',
                 className: cart.className,
-                InstructorName: cart.instructorName,
+                name: cart.name,
                 
             }
             axiosSecure.post('/payments', payment)

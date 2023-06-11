@@ -29,11 +29,11 @@ function ClassesPage() {
 
   const handleAddToCart = (classItem) =>{
     console.log(classItem)
-    const {_id,classImage,className,instructorName,seats,price} = classItem
+    const {_id,classImage,className,name,seats,price} = classItem
    
 
     if(user && user?.email){
-          const bookedClass = {classId:_id,classImage,className,seats,price,instructorName,email: user?.email}
+          const bookedClass = {classId:_id,classImage,className,seats,price,name,email: user?.email}
 
 
       fetch(`http://localhost:5000/carts`,{
@@ -98,7 +98,7 @@ function ClassesPage() {
                 </div>
         </td>
         <td>{classItem.className}</td>
-        <td>{classItem.instructorName}</td>
+        <td>{classItem.name}</td>
         <td className='text-center'>{classItem.seats}</td>
         <td>${classItem.price}</td>
         <td>
