@@ -19,6 +19,7 @@ import ManageUser from "../pages/Dashboard/ManageUser/ManageUser";
 import AdminRouter from "./AdminRouter";
 import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import MyEnrolled from "../pages/Dashboard/Enrolled/MyEnrolled";
 
  export const router = createBrowserRouter([
     {
@@ -88,6 +89,10 @@ import Payment from "../pages/Dashboard/Payment/Payment";
         {
           path: 'payment/:id',
           element:<Payment></Payment>,
+        },
+        {
+          path: 'myenrolled',
+          element:<MyEnrolled></MyEnrolled>,
         },
       ]
     }
