@@ -23,7 +23,7 @@ const AddClass = () => {
      const price = form.price.value
 
      const newAddClass = {
-      className,classImage,name,email,seats:parseFloat(seats),price: parseFloat(price)
+      className,classImage,name,email,seats:parseFloat(seats),price: parseFloat(price),status: 'pending'
      }
      
       fetch('http://localhost:5000/addclass',{

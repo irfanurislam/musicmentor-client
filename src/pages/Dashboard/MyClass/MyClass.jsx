@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import { Link } from 'react-router-dom';
 
 const MyClasses = () => {
   const [classes, setClasses] = useState([])
@@ -27,7 +28,7 @@ const MyClasses = () => {
             <th>Available Seats</th>
             <th>Price</th>
             <th>Total En ST</th>
-            <th>Feedback</th>
+            <th>status</th>
             <th>Update</th>
           </tr>
         </thead>
@@ -46,10 +47,10 @@ const MyClasses = () => {
               <td className="align-middle">{classItem.email}</td>
               <td className="align-middle">{classItem.seats}</td>
               <td className="align-middle">{classItem.price}</td>
-              <td className="align-middle">0</td>
-              <td className="align-middle">Pending</td>
+              <td >0</td>
+              <td className="align-middle">{classItem?.status}</td>
               <td className="align-middle">
-                <button className="btn btn-ghost btn-xs">Update</button>
+                <Link to={`/dashboard/updateclass/${classItem._id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
               </td>
             </tr>
           ))}

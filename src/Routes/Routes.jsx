@@ -20,6 +20,7 @@ import AdminRouter from "./AdminRouter";
 import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import MyEnrolled from "../pages/Dashboard/Enrolled/MyEnrolled";
+import UpdateClass from "../pages/Dashboard/Update/UpdateClass";
 
  export const router = createBrowserRouter([
     {
@@ -93,6 +94,11 @@ import MyEnrolled from "../pages/Dashboard/Enrolled/MyEnrolled";
         {
           path: 'myenrolled',
           element:<MyEnrolled></MyEnrolled>,
+        },
+        {
+          path: 'updateclass/:id',
+          element:<UpdateClass></UpdateClass>,
+          loader:({params}) => fetch(`http://localhost:5000/myclass/${params.id}`)
         },
       ]
     }

@@ -3,6 +3,32 @@ import useClass from '../../../hooks/useClass';
 
 const ManageClass = () => {
     const [myClass] = useClass()
+
+const handleApproved = (_id,status) =>{
+
+  console.log(_id,status)
+  const newStatus = {status}
+
+   fetch(`http://localhost:5000/managealldclass/${_id}`,{
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(newStatus)
+   })
+   .then(res => res.json())
+   .then(data =>{
+    console.log(data)
+    if(data.modifiedCount > 0){
+      alert ('update status')
+    }
+   })
+
+
+
+}
+
+
     return (
         <div className="overflow-x-auto">
        
@@ -18,6 +44,7 @@ const ManageClass = () => {
               <th>Available Seats</th>
               <th>Price</th>
               <th>Status</th>
+              <th>feedback</th>
               <th>Action</th>
                 
               </tr>
@@ -37,8 +64,16 @@ const ManageClass = () => {
                   <td>{classItem.email}</td>
                   <td>{classItem.seats}</td>
                   <td>${classItem.price}</td>
-                  <td><button className='btn btn-warning btn-sm'>pending</button></td>
-                  <td><button className='btn btn-success btn-sm'>Send</button></td>
+                  <td>{classItem.status}</td>
+                  <td>feedback</td>
+                  <td>
+                    <button onClick={() => handleApproved(classItem._id, 'approved')} 
+                    disabled={classItem.status === 'approved' || classItem.status === 'deny'}
+                    className='btn btn-success btn-xs'>approved</button>
+                    <button onClick={() => handleApproved(classItem._id, 'deny')} 
+                      disabled={classItem.status === 'approved' || classItem.status === 'deny'}
+                     className='btn btn-success btn-xs'>Deny</button>
+                    </td>
                   
                 </tr>
               ))}
