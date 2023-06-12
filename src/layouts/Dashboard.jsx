@@ -17,13 +17,20 @@ import {
 } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProviders";
+import useUsers from "../hooks/useUsers";
 
 const Dashboard = () => {
+  const {user} = useContext(AuthContext)
   // TODO: load data from the server to have dynamic isAdmin based on Data
   // const isAdmin = true;
   const isAdmin = useAdmin();
   const isInstructor = useInstructor();
-  console.log(isInstructor);
+  console.log(isAdmin,isInstructor);
+
+  const [userData] = useUsers()
+  console.log("userdata",userData)
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -40,62 +47,67 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          {isAdmin ? (
-            <>
-              <li>
-                <NavLink to="/dashboard/adminhome">
-                  <FaHome></FaHome> Admin Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/manageuser">
-                  <FaUserCog></FaUserCog> Manage User
-                </NavLink>
-              </li>
+          {isAdmin && (
+  <>
+    <li>
+      <NavLink to="/dashboard/adminhome">
+        <FaHome></FaHome> Admin Home
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/manageuser">
+        <FaUserCog></FaUserCog> Manage User
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/manageclass">
+        <FaCog></FaCog> Manage Class
+      </NavLink>
+    </li>
+  </>
+)}
 
-              <li>
-                <NavLink to="/dashboard/manageclass">
-                  <FaCog></FaCog> Manage Class
-                </NavLink>
-              </li>
-            </>
-          ) : isInstructor ? (
-            <>
-              <li>
-                <NavLink to="/dashboard/selectedclasses">
-                  <FaUsers></FaUsers> All Users
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/addclass">
-                  <FaPlusCircle></FaPlusCircle> Add Class
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/myclass">
-                  <FaPlusCircle></FaPlusCircle> My Class
-                </NavLink>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <NavLink to="/dashboard/payment">
-                  <FaCreditCard></FaCreditCard> Payment
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/myenrolled">
-                  <FaCreditCard></FaCreditCard> Payment
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/mycart">
-                  <FaShoppingCart></FaShoppingCart> My Cart
-                </NavLink>
-              </li>
-            </>
-          )}
+{isInstructor && (
+  <>
+    <li>
+      <NavLink to="/dashboard/selectedclasses">
+        <FaUsers></FaUsers> All Users
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/addclass">
+        <FaPlusCircle></FaPlusCircle> Add Class
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/myclass">
+        <FaPlusCircle></FaPlusCircle> My Class
+      </NavLink>
+    </li>
+  </>
+)}
+
+{!isAdmin && !isInstructor && (
+  <>
+    <li>
+      <NavLink to="/dashboard/payment">
+        <FaCreditCard></FaCreditCard> Payment
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/myenrolled">
+        <FaCreditCard></FaCreditCard> Payment
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/mycart">
+        <FaShoppingCart></FaShoppingCart> My Cart
+      </NavLink>
+    </li>
+  </>
+)}
+
+          
 
           <div className="divider"></div>
           <li>

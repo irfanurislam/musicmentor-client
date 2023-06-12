@@ -29,11 +29,11 @@ function ClassesPage() {
 
   const handleAddToCart = (classItem) =>{
     console.log(classItem)
-    const {_id,classImage,className,name,seats,price} = classItem
+    const {_id,classImage,className,name,seats,price,status} = classItem
    
 
     if(user && user?.email){
-          const bookedClass = {classId:_id,classImage,className,seats,price,name,email: user?.email}
+          const bookedClass = {classId:_id,classImage,className,seats,price,name,email: user?.email,status}
 
 
       fetch(`http://localhost:5000/carts`,{
@@ -84,35 +84,40 @@ function ClassesPage() {
     console.log(`Selected class with ID: ${classId}`);
   };
 
-  const renderClasses = () => {
-    return classes.map((classItem) => (
-      <tr
-        key={classItem._id}
-        className={`${classItem.seats === 0 ? 'bg-red-700' : ''}`}
-      >
-        <td>
-        <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <img src={classItem.classImage} alt={classItem.className} />
-                  </div>
-                </div>
-        </td>
-        <td>{classItem.className}</td>
-        <td>{classItem.name}</td>
-        <td className='text-center'>{classItem.seats}</td>
-        <td>${classItem.price}</td>
-        <td>
-          <button
-            className="btn btn-primary"
-            disabled={classItem.seats === 0}
-            onClick={() => handleAddToCart(classItem)}
-          >
-            Select
-          </button>
-        </td>
-      </tr>
-    ));
-  };
+//   const renderClasses = () => {
+//     return classes.map((classItem) => (
+//       <tr
+//   key={classItem._id}
+//   className={`${classItem.seats === 0 ? 'bg-red-700' : ''}`}
+// >
+//   <td>
+//     <div className="avatar">
+//       <div className="mask mask-squircle w-12 h-12">
+//         <img src={classItem.classImage} alt={classItem.className} />
+//       </div>
+//     </div>
+//   </td>
+//   <td>{classItem.className}</td>
+//   <td>{classItem.name}</td>
+//   <td className='text-center'>{classItem.seats}</td>
+//   <td>${classItem.price}</td>
+//   <td>
+//     {classItem.status === 'approved' ? (
+//       <button
+//         className="btn btn-primary"
+//         disabled={classItem.seats === 0}
+//         onClick={() => handleAddToCart(classItem)}
+//       >
+//         Select
+//       </button>
+//     ) : (
+//       'No Approved Class'
+//     )}
+//   </td>
+// </tr>
+
+//     ));
+//   };
 
   return (
     <div className='my-28'>
@@ -129,7 +134,39 @@ function ClassesPage() {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">{renderClasses()}</tbody>
+        {/* <tbody className="bg-white divide-y divide-gray-200">{renderClasses()}</tbody> */}
+        <tbody>
+  {classes
+    .filter((classItem) => classItem.status === 'approved')
+    .map((classItem) => (
+      <tr
+        key={classItem._id}
+        className={`${classItem.seats === 0 ? 'bg-red-700' : ''}`}
+      >
+        <td>
+          <div className="avatar">
+            <div className="mask mask-squircle w-12 h-12">
+              <img src={classItem.classImage} alt={classItem.className} />
+            </div>
+          </div>
+        </td>
+        <td>{classItem.className}</td>
+        <td>{classItem.name}</td>
+        <td className="text-center">{classItem.seats}</td>
+        <td>${classItem.price}</td>
+        <td>
+          <button
+            className="btn btn-primary"
+            disabled={classItem.seats === 0}
+            onClick={() => handleAddToCart(classItem)}
+          >
+            Select
+          </button>
+        </td>
+      </tr>
+    ))}
+</tbody>
+
       </table>
     </div>
     </div>
