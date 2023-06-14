@@ -7,11 +7,8 @@ const AddClass = () => {
   
   const {user} = useContext(AuthContext)
 
-  useEffect(() => {
-    // Fetch instructor's information from the server
-    // Set the instructor name and email using the response
-  }, []);
 
+  const totalstudents = 0;
   const handleAddClass = event =>{
     event.preventDefault()
      const form = event.target
@@ -23,7 +20,7 @@ const AddClass = () => {
      const price = form.price.value
 
      const newAddClass = {
-      className,classImage,name,email,seats:parseFloat(seats),price: parseFloat(price),status: 'pending'
+      className,classImage,name,email,seats:parseFloat(seats),price: parseFloat(price),status: 'pending',students: parseInt(totalstudents), instructorName: name, instructorEmail: email, instructorImage: user?.photoURL,
      }
      
       fetch('http://localhost:5000/addclass',{
@@ -75,13 +72,13 @@ const AddClass = () => {
           <label className="label">
             <span className="label-text"> Name</span>
           </label>
-          <input type="text" name='name' defaultValue={user?.displayName} placeholder="classname" className="input input-bordered" />
+          <input readOnly type="text" name='name' defaultValue={user?.displayName} placeholder="classname" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text"> email</span>
           </label>
-          <input type="email" name='email' defaultValue={user?.email} placeholder="instructor Email " className="input input-bordered" />
+          <input readOnly type="email" name='email' defaultValue={user?.email} placeholder="instructor Email " className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">

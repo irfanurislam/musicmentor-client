@@ -101,7 +101,7 @@ const NavBar = () => {
         
           <div className="" >
                 <img className="w-16 rounded-full" src={user?.photoURL} alt="Profile"
-                data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName ||'Unknown User'}
+                data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName ||'Unknown User'}
                  />
                  <Tooltip id="my-tooltip" />
                 

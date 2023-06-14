@@ -7,6 +7,7 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useBooked from "../../../hooks/useBooked";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ cart }) => {
   const stripe = useStripe();
@@ -18,7 +19,9 @@ const CheckoutForm = ({ cart }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState("");
-  const { price } = cart;
+  const navigate = useNavigate()
+  const { price,students,seats } = cart;
+  console.log(typeof(students))
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
@@ -83,10 +86,12 @@ const CheckoutForm = ({ cart }) => {
         date: new Date(),
         cartId: cart._id,
         classId: cart.classId,
-        availableseats: cart.seats - 1,
-        students: cart.seats + 1,
-        className: cart.className,
+        seats: seats - 1,
+        students: students + 1,
+        className: cart?.className,
         name: cart.name,
+        instructorName: cart.instructorName,
+        instructorImage: cart?.instructorImage
       };
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data.result);
@@ -98,6 +103,7 @@ const CheckoutForm = ({ cart }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate('/dashboard/myenrolled')
           refetch()
         }
       });
