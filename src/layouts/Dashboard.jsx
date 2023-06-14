@@ -17,9 +17,9 @@ import {
 } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
-import useUsers from "../hooks/useUsers";
+
 
 const Dashboard = () => {
   const {user} = useContext(AuthContext)
@@ -29,8 +29,11 @@ const Dashboard = () => {
   const isInstructor = useInstructor();
   console.log(isAdmin,isInstructor);
 
-  const [userData] = useUsers()
-  console.log("userdata",userData)
+  
+
+
+
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -69,11 +72,7 @@ const Dashboard = () => {
 
 {isInstructor && (
   <>
-    <li>
-      <NavLink to="/dashboard/selectedclasses">
-        <FaUsers></FaUsers> All Users
-      </NavLink>
-    </li>
+   
     <li>
       <NavLink to="/dashboard/addclass">
         <FaPlusCircle></FaPlusCircle> Add Class
@@ -112,7 +111,13 @@ const Dashboard = () => {
   </>
 )}
 
-          
+
+
+
+
+
+
+
 
           <div className="divider"></div>
           <li>

@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import { Tooltip } from "react-tooltip";
 import { FaShoppingCart } from "react-icons/fa";
 import useBooked from "../../../hooks/useBooked";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
  const [cart] = useBooked()
@@ -12,7 +13,12 @@ const NavBar = () => {
   const handleLogOut = () =>{
     logOut()
     .then(result =>{
-      alert('logout success')
+      Swal.fire({
+        title: 'Success!',
+        text: 'User Logout successfully',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     })
     .catch(error =>{
       console.log(error.message)
@@ -40,12 +46,9 @@ const NavBar = () => {
 
       {/* TODO list when user here  */}
       <li>
-        <Link to="/dashboard/mycart">DashBoard</Link>
-      </li>
-      <li>
         <Link to="/dashboard/mycart">
           <button className="btn btn-xs gap-2">
-          <FaShoppingCart className="text-xl" />
+          Dashboard
           <div className="badge badge-secondary">+{cart.length || 0}</div>
           </button>
         </Link>
@@ -55,7 +58,8 @@ const NavBar = () => {
   );
 
   return (
-    <div className='w-full bg-transparent  '>
+   <div>
+     <div className='mt-6 bg-transparent'>
       <div className="navbar bg-base-400">
         <div className="navbar-start">
           <div className="dropdown">
@@ -86,7 +90,7 @@ const NavBar = () => {
           <Link className="btn btn-ghost normal-case text-xl">Melody Mentor</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 ">
+          <ul className="menu menu-horizontal text-lg  px-1">
         
             {listItems}
           
@@ -117,6 +121,7 @@ const NavBar = () => {
         </div>
       </div>
     </div>
+   </div>
   );
 };
 

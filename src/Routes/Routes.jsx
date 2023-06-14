@@ -22,6 +22,7 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import MyEnrolled from "../pages/Dashboard/Enrolled/MyEnrolled";
 import UpdateClass from "../pages/Dashboard/Update/UpdateClass";
 import PaymentHistory from '../pages/Dashboard/Payment/PaymentHistory';
+import InstructorRoute from "./InstructorRoute";
  export const router = createBrowserRouter([
     {
       path: "/",
@@ -65,19 +66,19 @@ import PaymentHistory from '../pages/Dashboard/Payment/PaymentHistory';
       children: [
         {
           path: 'adminhome',
-          element: <AdminHome></AdminHome>,
+          element:<AdminRouter><AdminHome></AdminHome></AdminRouter>,
         },
         {
           path: 'addclass',
-          element: <AddClass></AddClass>,
+          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>,
         },
         {
           path: 'myclass',
-          element: <MyClasses></MyClasses>,
+          element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>,
         },
         {
           path: 'mycart',
-          element: <MyCart></MyCart>,
+          element: <PrivateRouters><MyCart></MyCart></PrivateRouters>,
         },
         {
           path: 'manageuser',
@@ -89,19 +90,19 @@ import PaymentHistory from '../pages/Dashboard/Payment/PaymentHistory';
         },
         {
           path: 'payment/:id',
-          element:<Payment></Payment>,
+          element:<PrivateRouters><Payment></Payment></PrivateRouters>,
         },
         {
           path: 'myenrolled',
-          element:<MyEnrolled></MyEnrolled>,
+          element:<PrivateRouters><MyEnrolled></MyEnrolled></PrivateRouters>,
         },
         {
           path: 'paymenthistory',
-          element:<PaymentHistory></PaymentHistory>,
+          element:<PrivateRouters><PaymentHistory></PaymentHistory></PrivateRouters>,
         },
         {
           path: 'updateclass/:id',
-          element:<UpdateClass></UpdateClass>,
+          element:<InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
           loader:({params}) => fetch(`http://localhost:5000/myclass/${params.id}`)
         },
       ]

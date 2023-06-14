@@ -42,14 +42,14 @@ const MyClasses = () => {
                   </div>
                 </div>
               </td>
-              <td className="align-middle">{classItem.className}</td>
-              <td className="align-middle">{classItem.name}</td>
-              <td className="align-middle">{classItem.email}</td>
-              <td className="align-middle">{classItem.seats}</td>
-              <td className="align-middle">{classItem.price}</td>
-              <td >0</td>
-              <td className="align-middle">{classItem?.status}</td>
-              <td className="align-middle">
+              <td className="text-center">{classItem.className}</td>
+              <td className="text-center">{classItem.name}</td>
+              <td className="text-center">{classItem.email}</td>
+              <td className="text-center">{classItem.seats}</td>
+              <td className="text-center">{classItem.price}</td>
+              <td className='text-center'>{classes.length|| 0}</td>
+              <td className="text-center">{classItem?.status}</td>
+              <td className="text-center">
                 <Link to={`/dashboard/updateclass/${classItem._id}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
               </td>
             </tr>

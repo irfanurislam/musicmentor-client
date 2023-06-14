@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
 
 const Instructors = () => {
-  // Fetch instructor data from the database
-  const instructors = [
-    {
-      id: 1,
-      name: 'John Doe',
-      email: 'johndoe@example.com',
-      music: [
-        { id: 1, musicName: 'Jazz' },
-        { id: 2, musicName: 'Hip Hop' }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      email: 'janesmith@example.com',
-      music: [
-        { id: 3, musicName: 'Salsa' },
-        { id: 4, musicName: 'Bollywood' }
-      ]
-    }
-    // Add more instructors as needed
-  ];
+   
+  const [allMentor,setMentor] = useState([])
+  useEffect(() => {
+    fetch('http://localhost:5000/payments')
+    .then(res => res.json())
+    .then(data => {
+     console.log(data)
+     setMentor(data)
+    })
+   }, []);
+ 
+   console.log(allMentor)
+
+
 
   return (
     <div className="container mx-auto p-8">
@@ -33,19 +25,23 @@ const Instructors = () => {
       <table className="w-full border">
         <thead>
           <tr>
+            <th className="px-4 py-2 bg-gray-200 text-left">#</th>
             <th className="px-4 py-2 bg-gray-200 text-left">Image</th>
-            <th className="px-4 py-2 bg-gray-200 text-left">Name</th>
-            <th className="px-4 py-2 bg-gray-200 text-left">Email</th>
-            <th className="px-4 py-2 bg-gray-200 text-left">Classes</th>
-            <th className="px-4 py-2 bg-gray-200 text-left">Actions</th>
+            <th className="px-4 py-2 bg-gray-200 text-left">Instructor Name</th>
+            <th className="px-4 py-2 bg-gray-200 text-left">Instructor Email</th>
+            <th className="px-4 py-2 bg-gray-200 text-left">Classes Name</th>
+            <th className="px-4 py-2 bg-gray-200 text-left">details</th>
           </tr>
         </thead>
         <tbody>
-          {instructors.map((instructor) => (
-            <tr key={instructor.id}>
+          {allMentor.map((instructor,index) => (
+            <tr key={instructor._id}>
+              <td>
+                {index + 1}
+              </td>
               <td className="px-4 py-2">
                 <img
-                  src="https://i.ibb.co/Lg56rFT/extra-Volunteer.png"
+                  src={instructor?.instructorImage}
                   alt=""
                   className="w-16 h-16 rounded-full"
                 />
@@ -53,22 +49,11 @@ const Instructors = () => {
               <td className="px-4 py-2">{instructor.name}</td>
               <td className="px-4 py-2">{instructor.email}</td>
               <td className="px-4 py-2">
-                {instructor.music && instructor.music.length > 0 ? (
-                  <>
-                    <p>Number of Music: {instructor.music.length}</p>
-                    <ul>
-                      {instructor.music.map((music) => (
-                        <li key={music.id}>{music.musicName}</li>
-                      ))}
-                    </ul>
-                  </>
-                ) : (
-                  <span>No music listed</span>
-                )}
+                {instructor.className}
               </td>
               <td className="px-4 py-2">
-                <Link to={`/instructors/${instructor.id}/classes`} className="btn btn-primary">
-                  See Classes
+                <Link to={`/instructors/${instructor._id}/classes`} className="btn btn-primary btn-sm">
+                 info
                 </Link>
               </td>
             </tr>
