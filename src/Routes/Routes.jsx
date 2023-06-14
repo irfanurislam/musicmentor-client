@@ -78,7 +78,7 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: 'mycart',
-          element: <PrivateRouters><MyCart></MyCart></PrivateRouters>,
+          element: <MyCart></MyCart>,
         },
         {
           path: 'manageuser',
@@ -94,11 +94,11 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: 'myenrolled',
-          element:<PrivateRouters><MyEnrolled></MyEnrolled></PrivateRouters>,
+          element:<MyEnrolled></MyEnrolled>,
         },
         {
           path: 'paymenthistory',
-          element:<PrivateRouters><PaymentHistory></PaymentHistory></PrivateRouters>,
+          element:<PaymentHistory></PaymentHistory>,
         },
         {
           path: 'updateclass/:id',

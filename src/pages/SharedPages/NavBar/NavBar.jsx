@@ -45,14 +45,14 @@ const NavBar = () => {
       </li>
 
       {/* TODO list when user here  */}
-      <li>
+      {user &&  <li>
         <Link to="/dashboard/mycart">
           <button className="btn btn-xs gap-2">
           Dashboard
           <div className="badge badge-secondary">+{cart.length || 0}</div>
           </button>
         </Link>
-      </li>
+      </li>}
       
     </>
   );
