@@ -9,7 +9,7 @@ const paymentHistroy = () => {
   console.log(user.email)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/payments?email=${user?.email}`)
+    fetch(`https://side-of-server.vercel.app/payments?email=${user?.email}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data)

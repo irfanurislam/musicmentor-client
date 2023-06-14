@@ -23,7 +23,7 @@ const AddClass = () => {
       className,classImage,name,email,seats:parseFloat(seats),price: parseFloat(price),status: 'pending',students: parseInt(totalstudents), instructorName: name, instructorEmail: email, instructorImage: user?.photoURL,
      }
      
-      fetch('http://localhost:5000/addclass',{
+      fetch('https://side-of-server.vercel.app/addclass',{
         method:'POST',
         headers: {
           'content-type': 'application/json',

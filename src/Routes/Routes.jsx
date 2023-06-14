@@ -103,7 +103,7 @@ import InstructorRoute from "./InstructorRoute";
         {
           path: 'updateclass/:id',
           element:<InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
-          loader:({params}) => fetch(`http://localhost:5000/myclass/${params.id}`)
+          loader:({params}) => fetch(`https://side-of-server.vercel.app/myclass/${params.id}`)
         },
       ]
     }

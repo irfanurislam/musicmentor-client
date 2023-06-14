@@ -7,7 +7,7 @@ const MyClasses = () => {
   const {user} = useContext(AuthContext)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myclass?email=${user?.email}`)
+    fetch(`https://side-of-server.vercel.app/myclass?email=${user?.email}`)
       .then((response) => response.json())
       .then((data) => setClasses(data))
       .catch((error) => console.error('Error fetching classes:', error));

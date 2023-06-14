@@ -9,7 +9,7 @@ const handleApproved = (_id,status) =>{
   console.log(_id,status)
   const newStatus = {status}
 
-   fetch(`http://localhost:5000/manageallclass/${_id}`,{
+   fetch(`https://side-of-server.vercel.app/manageallclass/${_id}`,{
     method: 'PATCH',
     headers: {
       'content-type': 'application/json'

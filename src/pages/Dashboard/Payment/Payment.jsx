@@ -11,7 +11,7 @@ const Payment = () => {
   console.log(id)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carts/${id}`)
+    fetch(`https://side-of-server.vercel.app/carts/${id}`)
     .then(res => res.json())
     .then(data => {
         console.log(data)

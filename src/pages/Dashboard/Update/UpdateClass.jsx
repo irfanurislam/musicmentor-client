@@ -30,7 +30,7 @@ const UpdateClass = () => {
       status
     };
 console.log(newUpdatedClass)
-fetch(`http://localhost:5000/myclass/${_id}`,{
+fetch(`https://side-of-server.vercel.app/myclass/${_id}`,{
     method: 'PUT',
     headers: {
         'content-type': 'application/json'

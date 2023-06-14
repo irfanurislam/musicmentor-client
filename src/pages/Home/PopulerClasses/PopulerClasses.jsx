@@ -4,7 +4,7 @@ import PopulerClass from './PopulerClass';
 const PopulerClasses = () => {
      const [classesData,setClasses] = useState([])
      useEffect( () =>{
-      fetch('http://localhost:5000/payments')
+      fetch('https://side-of-server.vercel.app/payments')
       .then(res => res.json())
       .then(data => {
        console.log(data)

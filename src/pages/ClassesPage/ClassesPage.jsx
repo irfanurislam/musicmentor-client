@@ -15,7 +15,7 @@ function ClassesPage() {
   const {user} = useContext(AuthContext)
 
   useEffect(() => {
-   fetch('http://localhost:5000/myclass')
+   fetch('https://side-of-server.vercel.app/myclass')
    .then(res => res.json())
    .then(data => {
     console.log(data)
@@ -36,7 +36,7 @@ function ClassesPage() {
           const bookedClass = {classId:_id,classImage,className,seats,price,name,email: user?.email,status,students,instructorImage,instructorName,instructorEmail}
 
 
-      fetch(`http://localhost:5000/carts`,{
+      fetch(`https://side-of-server.vercel.app/carts`,{
         method: 'POST',
         headers: {
           'content-type':'application/json'
