@@ -9,7 +9,7 @@ const handleApproved = (_id,status) =>{
   console.log(_id,status)
   const newStatus = {status}
 
-   fetch(`http://localhost:5000/managealldclass/${_id}`,{
+   fetch(`http://localhost:5000/manageallclass/${_id}`,{
     method: 'PATCH',
     headers: {
       'content-type': 'application/json'

@@ -35,7 +35,7 @@ const PopulerClasses = () => {
         },
       ];
     return (
-        <div className="container mx-auto grid grid-cols-2 gap-4">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 xl:grid-cols-2 gap-4">
       {classesData.map((classItem, index) => (
         <PopulerClass key={index} {...classItem} />
       ))}

@@ -55,9 +55,9 @@ const NavBar = () => {
   );
 
   return (
-    <div className=''>
-      <div className="navbar bg-base-100">
-        <div className="">
+    <div className='w-full bg-transparent  '>
+      <div className="navbar bg-base-400">
+        <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg

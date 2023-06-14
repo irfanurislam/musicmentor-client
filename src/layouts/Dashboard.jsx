@@ -87,7 +87,7 @@ const Dashboard = () => {
   </>
 )}
 
-{!isAdmin && !isInstructor && (
+{!isAdmin &&  !isInstructor && (
   <>
     <li>
       <NavLink to="/dashboard/payment">
@@ -96,7 +96,12 @@ const Dashboard = () => {
     </li>
     <li>
       <NavLink to="/dashboard/myenrolled">
-        <FaCreditCard></FaCreditCard> Payment
+        <FaCreditCard></FaCreditCard> myenrolled
+      </NavLink>
+    </li>
+    <li>
+      <NavLink to="/dashboard/paymenthistory">
+        <FaCreditCard></FaCreditCard> history
       </NavLink>
     </li>
     <li>

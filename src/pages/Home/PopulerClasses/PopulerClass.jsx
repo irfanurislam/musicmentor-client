@@ -3,11 +3,12 @@ import React from "react";
 const PopulerClass = ({ classesImg, title, description }) => {
   return (
     <div>
-      <div className="card card-compact min-h-full bg-base-100 shadow-xl">
+      <div className="card card-compact min-h-full bg-base-400 shadow-xl">
         <figure>
           <img
             src={classesImg}
             alt="Shoes"
+            className="hover:scale-110 transition"
           />
         </figure>
         <div className="card-body">

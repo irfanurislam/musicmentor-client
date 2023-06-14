@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, json, useNavigate } from "react-router-dom";
-import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -90,12 +89,12 @@ const SignUp = () => {
 
   return (
     <div className="mt-10">
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-100">
         <div className="hero-content flex-col ">
           <div className="text-center">
             <h1 className="text-3xl font-bold">Sign Up!</h1>
           </div>
-          <div className="card w-96 max-w-sm shadow-2xl bg-base-100">
+          <div className="card max-w-lg shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="card-body">
                 <div className="form-control">
@@ -247,10 +246,10 @@ const SignUp = () => {
                     className="btn btn-primary"
                   />
                 </div>
-                <p className="text-end">
+                <p className="text-center">
                   Already Have A Account{" "}
                   <Link to="/login" className="btn btn-link">
-                    Sign Up
+                    Sign In
                   </Link>
                 </p>
               </div>
