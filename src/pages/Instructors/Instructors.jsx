@@ -5,7 +5,7 @@ const Instructors = () => {
    
   const [allMentor,setMentor] = useState([])
   useEffect(() => {
-    fetch('https://side-of-server.vercel.app/payments')
+    fetch('https://side-of-server.vercel.app/myclass')
     .then(res => res.json())
     .then(data => {
      console.log(data)

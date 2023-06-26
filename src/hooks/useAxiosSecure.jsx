@@ -3,25 +3,15 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProviders';
 
-
-
 const useAxiosSecure = () => {
-  const { logOut } = useContext(AuthContext)
-  const navigate = useNavigate(); 
+  const { logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://side-of-server.vercel.app',
   });
 
   useEffect(() => {
-    axiosSecure.interceptors.request.use((config) => {
-      const token = localStorage.getItem('access-token');
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    });
-
     axiosSecure.interceptors.response.use(
       (response) => response,
       async (error) => {

@@ -29,14 +29,19 @@ const Dashboard = () => {
   console.log(isAdmin,isInstructor);
   // admin
 
+const [usersdata ,setUsersData] = useState([])
+useEffect(() =>{
+  fetch(`https://side-of-server.vercel.app/users`)
+  .then(res => res.json())
+  .then(data =>{
+    setUsersData(data)
+  })
+},[])
+console.log('shihab',usersdata)
 
-
-
-  
-
-
-
-
+const activeUserEmail = user?.email
+const findUser = usersdata?.find(user => user?.email === activeUserEmail)
+// console.log("shihab",findUser.role)
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -53,7 +58,8 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          {isAdmin && (
+          
+          {findUser?.role === "admin" &&  (
     <>
       <li>
         <NavLink to="/dashboard/adminhome">
@@ -73,7 +79,7 @@ const Dashboard = () => {
     </>
   )}
   
-  {isInstructor && (
+  {findUser?.role === "instructor" &&  (
     <>
      
       <li>
@@ -89,7 +95,7 @@ const Dashboard = () => {
     </>
   )}
   
-  {!isAdmin &&  !isInstructor && (
+  {!findUser?.role && (
     <>
       <li>
         <NavLink to="/dashboard/payment">
@@ -120,8 +126,6 @@ const Dashboard = () => {
 
 
 
-
-
           <div className="divider"></div>
           <li>
             <NavLink to="/">
@@ -134,7 +138,7 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/instructor">
+            <NavLink to="/instructors">
               <FaUserTie></FaUserTie> Our Instructors
             </NavLink>
           </li>

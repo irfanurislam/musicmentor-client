@@ -6,7 +6,7 @@ const TopInstructors = () => {
     
   const [allMentor,setMentor] = useState([])
   useEffect(() => {
-    fetch('https://side-of-server.vercel.app/payments')
+    fetch('https://side-of-server.vercel.app/populerclass')
     .then(res => res.json())
     .then(data => {
      console.log(data)

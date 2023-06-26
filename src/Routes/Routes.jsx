@@ -70,7 +70,7 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: 'addclass',
-          element: <InstructorRoute><AddClass></AddClass></InstructorRoute>,
+          element:<InstructorRoute><AddClass></AddClass></InstructorRoute>,
         },
         {
           path: 'myclass',
@@ -78,7 +78,7 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: 'mycart',
-          element: <MyCart></MyCart>,
+          element:<MyCart></MyCart>,
         },
         {
           path: 'manageuser',
@@ -90,7 +90,7 @@ import InstructorRoute from "./InstructorRoute";
         },
         {
           path: 'payment/:id',
-          element:<PrivateRouters><Payment></Payment></PrivateRouters>,
+          element:<Payment></Payment>,
         },
         {
           path: 'myenrolled',

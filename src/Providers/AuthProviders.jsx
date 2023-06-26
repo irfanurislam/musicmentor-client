@@ -42,30 +42,17 @@ const AuthProviders = ({children}) => {
   }
     
 
-    useEffect(() =>{
-       const onSubscribe =  onAuthStateChanged(auth,currentUser =>{
-            console.log('current user', currentUser)
-            setUser(currentUser)
+  useEffect(() => {
+    const onSubscribe = onAuthStateChanged(auth, currentUser => {
+      console.log('current user', currentUser);
+      setUser(currentUser);
+      setLoading(false);
+    });
 
-            // user have current 
-             if(currentUser){
-                axios.post('https://side-of-server.vercel.app/jwt', {email: currentUser.email})
-                .then(data =>{
-                    
-                    localStorage.setItem('access-token', data.data.token)
-                    setLoading(false);
-                })
-            }
-            else{
-                localStorage.removeItem('access-token')
-            }
-           
-        })
-        return( ()=>{
-           return onSubscribe()
-        })
-
-    },[])
+    return () => {
+      return onSubscribe();
+    };
+  }, []);
 
 
 
