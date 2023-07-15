@@ -13,12 +13,12 @@ const TopInstructor = ({ classItem }) => {
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">Mentor: {instructorName}</div>
           <div className="flex items-center mt-4">
-            <p className="text-gray-700 text-sm">Music: {className}</p>
-            <p className="text-gray-700 text-sm text-end ml-5">Enroll: {students}</p>
+            <p className="text-gray-700 text-lg">Music: {className}</p>
+            <p className="text-gray-700 text-lg text-end ml-5">Enroll: {students}</p>
           </div>
-          <div className='card-actions justify-center my-2'>
+          <div className='card-actions md:justify-start my-3'>
             <Link to='/instructors'>
-              <button className='btn btn-primary btn-sm'>Details</button>
+              <button className='btn btn-primary'>Details</button>
             </Link>
           </div>
         </div>

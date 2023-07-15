@@ -47,9 +47,9 @@ const NavBar = () => {
       {/* TODO list when user here  */}
       {user &&  <li>
         <Link to="/dashboard/mycart">
-          <button className="btn btn-xs gap-2">
+          <button className="btn btn-xs gap-2 flex items-center justify-center">
           Dashboard
-          <div className="badge badge-secondary">+{cart.length || 0}</div>
+          <span className="badge badge-secondary">+{cart.length || 0}</span>
           </button>
         </Link>
       </li>}

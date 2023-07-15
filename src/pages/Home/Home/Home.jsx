@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from '../Slider/Slider';
 import PopulerClasses from '../PopulerClasses/PopulerClasses';
 import TopInstructors from '../../TopInstructors/TopInstructors';
 import Level from '../Level/Level';
-
+import ClipLoader from "react-spinners/ClipLoader";
 const Home = () => {
+    const [loading, setLoading] = useState(false)
+
+    useEffect(() =>{
+        setLoading(true)
+        setTimeout(() =>{
+            setLoading(false)
+        },2000)
+    },[])
+
     return (
         <div>
-            <Slider></Slider>
-            <PopulerClasses></PopulerClasses>
-            <TopInstructors></TopInstructors>
-            <Level></Level>
+            {
+                loading ? <div className='text-center'> <ClipLoader  color={"#cf1515"} loading={loading} size={50} /></div>
+                :<>
+                <Slider></Slider>
+                 <PopulerClasses></PopulerClasses>
+                 <TopInstructors></TopInstructors>
+                 <Level></Level>
+                </>
+            }
+           
         </div>
     );
 };

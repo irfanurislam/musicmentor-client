@@ -37,24 +37,27 @@ const Slider = () => {
   ];
   return (
     <div className="my-10">
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative">
-              <img src={slide.imageSrc} alt="" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div>
-                <h2 className="text-xl text-white font-extrabold text-center mb-3"> {slide.musicName}</h2>
-                <p className="text-white text-2xl font-bold">
-                 {slide.quote}
-                </p>
-                </div>
-              </div>
+  <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+    {slides.map((slide, index) => (
+      <SwiperSlide key={index}>
+        <div className="relative opacity-90">
+          <img src={slide.imageSrc} alt="" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="max-w-xl">
+              <h2 className="text-2xl md:text-6xl lg:text-7xl text-pink-700 md:font-extrabold text-center mb-3">
+                {slide.musicName}
+              </h2>
+              <p className="text-lg md:text-2xl lg:text-3xl text-pink-700 font-bold">
+                {slide.quote}
+              </p>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
+
   );
 };
 

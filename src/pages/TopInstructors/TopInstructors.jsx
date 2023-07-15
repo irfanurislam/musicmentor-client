@@ -31,7 +31,7 @@ const TopInstructors = () => {
     return (
         <div className='mt-28'>
          <div className="container mx-auto">
-      <h2 className="text-2xl font-bold my-10 text-center">Our Instructor</h2>
+      <h2 className="text-2xl font-bold my-10 text-center">Our <span className='text-pink-600'>Instructor</span></h2>
       <div className="grid md:grid-cols-3 gap-4">
         {allMentor.map((instructor, index) => (
           <TopInstructor

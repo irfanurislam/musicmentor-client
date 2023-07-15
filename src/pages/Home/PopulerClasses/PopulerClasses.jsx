@@ -48,7 +48,7 @@ console.log(classesData)
     return (
       <div className='mt-28'>
         <div className='mb-10'>
-        <h2 className="text-2xl font-bold my-10 text-center">Our Music  Classes</h2>
+        <h2 className="text-2xl font-bold my-10 text-center">Our Music  <span className='text-pink-600'>Classes</span></h2>
         </div>
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 xl:grid-cols-2 gap-4">
       {classesData.map((classItem, index) => (
