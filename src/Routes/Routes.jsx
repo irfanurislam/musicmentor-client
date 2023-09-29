@@ -23,6 +23,7 @@ import MyEnrolled from "../pages/Dashboard/Enrolled/MyEnrolled";
 import UpdateClass from "../pages/Dashboard/Update/UpdateClass";
 import PaymentHistory from '../pages/Dashboard/Payment/PaymentHistory';
 import InstructorRoute from "./InstructorRoute";
+import InstructorInfo from "../pages/Instructors/InstructorInfo";
  export const router = createBrowserRouter([
     {
       path: "/",
@@ -34,9 +35,16 @@ import InstructorRoute from "./InstructorRoute";
         element: <Home></Home>,
         
       },
-        {
+      
+      {
         path: '/instructors',
         element: <Instructors></Instructors>,
+        
+      },
+      {
+        path: '/instructors/:id',
+        element: <InstructorInfo></InstructorInfo>,
+        loader:({params}) => fetch(`http://localhost:5000/myclass/${params.id}`)
         
       },
         {
