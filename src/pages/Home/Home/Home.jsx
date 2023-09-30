@@ -5,6 +5,7 @@ import TopInstructors from '../../TopInstructors/TopInstructors';
 import Level from '../Level/Level';
 import ClipLoader from "react-spinners/ClipLoader";
 import Banner from '../Banner';
+import ScrollToTop from 'react-scroll-to-top';
 const Home = () => {
     const [loading, setLoading] = useState(false)
 
@@ -24,6 +25,8 @@ const Home = () => {
                 <Banner></Banner>
                  <PopulerClasses></PopulerClasses>
                  <TopInstructors></TopInstructors>
+                 {/* <div style={{ marginTop: "150vh" }} /> */}
+                <ScrollToTop smooth color="#ce0d50"/>
                  <Level></Level>
                 </>
             }

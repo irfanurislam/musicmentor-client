@@ -6,6 +6,44 @@
     color: white;
     background-color: black;
   }
+
+  
   /* .drawer-side a {
     background-color: transparent;
   } */
+  /* index.css */
+
+body{
+  font-family: 'Pacifico', cursive;
+}
+
+
+
+.text-hover a{
+  /* color: #ce0d50; */
+  @apply text-pink-700
+}
+.font-used{
+  font-family: 'Roboto', cursive;
+}
+.text-usedAll li a{
+   /* color: #3333;  */
+   font-family: 'Roboto', cursive;
+   font-weight: 600;
+ @apply bg-opacity-0
+   
+  
+}
+
+.text-usedAll li a:hover{
+  color: #ce0d50; 
+  
+  
+}
+.text-hoverAll a:hover{
+  color: #ce0d50; 
+  
+  
+}
+
+

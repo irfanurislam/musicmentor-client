@@ -36,20 +36,22 @@ const Slider = () => {
     },
   ];
   return (
-    <div className="my-10">
-  <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+    <div className="">
+    <Swiper navigation={true} modules={[Navigation]} className="mySwiper min-h-screen">
     {slides.map((slide, index) => (
       <SwiperSlide key={index}>
         <div className="relative opacity-90">
-          <img src={slide.imageSrc} alt="" />
+          <img src={slide.imageSrc} alt="" className="w-full object-fit" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="max-w-xl">
+            <div className="flex justify-center items-center">
+            <div className="max-w-xl mt-auto">
               <h2 className="text-2xl md:text-6xl lg:text-7xl text-pink-700 md:font-extrabold text-center mb-3">
                 {slide.musicName}
               </h2>
-              <p className="text-lg md:text-2xl lg:text-3xl text-pink-700 font-bold">
+              <p className="text-lg md:text-2xl lg:text-3xl text-pink-700 font-bold ">
                 {slide.quote}
               </p>
+            </div>
             </div>
           </div>
         </div>

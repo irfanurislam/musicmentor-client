@@ -44,22 +44,32 @@ const NavBar = () => {
         <Link to="/classespage">Classes</Link>
       </li>
 
+      {
+        user && <li>
+         <Link to="/dashboard/mycart">
+          Favoruite
+          <span className="text-pink-600">+{cart.length || 0}</span>
+        
+        </Link>
+        </li>
+      }
+
       {/* TODO list when user here  */}
-      {user &&  <li>
+      {/* {user &&  <li>
         <Link to="/dashboard/mycart">
           <button className="btn btn-xs gap-2 flex items-center justify-center">
           Dashboard
           <span className="badge badge-secondary">+{cart.length || 0}</span>
           </button>
         </Link>
-      </li>}
+      </li>} */}
       
     </>
   );
 
   return (
-   <div>
-     <div className='mt-6 bg-transparent'>
+   <div className="">
+     <div className='fixed z-10 bg-white max-w-[83rem] w-full mx-auto bg-opacity-20'>
       <div className="navbar bg-base-400">
         <div className="navbar-start">
           <div className="dropdown">
@@ -81,16 +91,16 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="text-usedAll menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
            
              {listItems}
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl">Melody Mentor</Link>
+          <Link className="btn btn-ghost normal-case text-xl font-used hover:text-pink-700">Melody Mentor</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal text-lg  px-1">
+          <ul className="menu menu-horizontal text-lg px-1 text-usedAll">
         
             {listItems}
           
