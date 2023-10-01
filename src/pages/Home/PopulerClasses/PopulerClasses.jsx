@@ -14,6 +14,8 @@ const PopulerClasses = () => {
      }, []);
 console.log(classesData)
 
+
+
     // const classesData = [
     //     {
     //       classesImg: 'https://i.ibb.co/CWRz0jg/little.jpg',

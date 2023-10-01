@@ -6,9 +6,12 @@ const TopInstructor = ({ classItem }) => {
 
   return (
     <div className='my-10'>
-      <div className="min-h-full rounded overflow-hidden shadow-lg bg-white">
-        <div className="aspect-w-16 aspect-h-9">
+      <div className="min-h-full rounded overflow-hidden shadow-xl bg-white">
+        {/* <div className="aspect-w-16 aspect-h-9">
           <img className="object-cover object-center w-full md:h-[15rem]" src={instructorImage} alt={instructorName} />
+        </div> */}
+        <div className="min-h-full">
+          <img className=" object-center w-full md:h-[15rem]" src={instructorImage} alt={instructorName} />
         </div>
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">Mentor: {instructorName}</div>

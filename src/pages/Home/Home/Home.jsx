@@ -7,6 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Banner from '../Banner';
 import ScrollToTop from 'react-scroll-to-top';
 import ShowVideo from '../ShowVideo/ShowVideo';
+import Subscriber from '../subscribe/Subscriber';
 const Home = () => {
     const [loading, setLoading] = useState(false)
 
@@ -20,7 +21,7 @@ const Home = () => {
     return (
         <div>
             {
-                loading ? <div className='text-center'> <ClipLoader  color={"#cf1515"} loading={loading} size={50} /></div>
+                loading ? <div className='text-center pt-20'> <ClipLoader  color={"#cf1515"} loading={loading} size={50} /></div>
                 :<>
                 {/* <Slider></Slider> */}
                 <Banner></Banner>
@@ -30,6 +31,7 @@ const Home = () => {
                 <ScrollToTop smooth color="#ce0d50"/>
                  <Level></Level>
                  <ShowVideo></ShowVideo>
+                 <Subscriber></Subscriber>
                 </>
             }
            

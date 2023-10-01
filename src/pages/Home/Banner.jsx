@@ -1,6 +1,14 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Banner = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      multiple: true, // Start animations on scroll
+    });
+  }, []);
+
   return (
     <div className="pt-20">
       <div className="carousel w-full h-[600px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
@@ -11,11 +19,20 @@ const Banner = () => {
           />
           <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
             <div className="text-white space-y-7 pl-12 w-1/2 sm:w-full md:w-3/4 lg:w-1/2">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+              <h2
+                data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
+              >
                 Affordable for price{" "}
                 <span className="text-pink-600">Violin</span> Learn
               </h2>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl">
+              <p
+                data-aos="fade-up"
+                data-aos-duration="3000"
+                className="text-sm sm:text-base md:text-lg lg:text-xl"
+              >
                 The violin is the voice of the soul, the drum is the heartbeat
                 of the world...
               </p>

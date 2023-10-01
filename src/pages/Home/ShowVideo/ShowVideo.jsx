@@ -25,6 +25,7 @@ const ShowVideo = () => {
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
       title="Embedded youtube"
+      className='rounded-2xl'
     
     />
   </div>
