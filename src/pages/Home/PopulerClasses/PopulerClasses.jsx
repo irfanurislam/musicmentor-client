@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PopulerClass from './PopulerClass';
+import { Link } from 'react-router-dom';
 
 const PopulerClasses = () => {
      const [classesData,setClasses] = useState([])
@@ -55,6 +56,10 @@ console.log(classesData)
         <PopulerClass key={classItem._id} classItem = {classItem} />
       ))}
     </div>
+     <div className='flex items-center justify-center mt-10'>
+      <Link to='/classespage'> <button className='btn btn-primary'> all classes</button></Link>
+     
+     </div>
     </div>
     );
 };

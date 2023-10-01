@@ -29,7 +29,7 @@ const Instructors = () => {
     setIsOpen(false);
   }
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto p-8 py-28">
       <div className="overflow-x-auto">
         <table className="w-full border">
           <thead>

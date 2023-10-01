@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { Tooltip } from "react-tooltip";
@@ -65,11 +65,33 @@ const NavBar = () => {
       </li>} */}
       
     </>
+
   );
+
+
+  const [scrolled,setScrolled] = useState(false)
+
+  const handleScroll = () => {
+    if (window.scrollY > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+useEffect(() =>{
+  window.addEventListener('scroll',handleScroll)
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+},[])
+
+
+
 
   return (
    <div className="">
-     <div className='fixed z-10 bg-white max-w-[83rem] w-full mx-auto bg-opacity-20'>
+     <div className={`fixed z-10 bg-white max-w-[83rem] w-full mx-auto  ${scrolled ? 'text-blue-800 bg-black ' : 'bg-opacity-20'}`}>
       <div className="navbar bg-base-400">
         <div className="navbar-start">
           <div className="dropdown">

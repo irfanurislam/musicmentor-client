@@ -17,7 +17,7 @@ const PopulerClass = ({ classItem}) => {
           <p className="text-lg font-medium">Seats: {seats}</p>
           <p className="text-lg font-medium"> Price: ${price}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">All Classes</button>
+            <h2 className="link link-secondary text-xl">Details</h2>
           </div>
         </div>
       </div>

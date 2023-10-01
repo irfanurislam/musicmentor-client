@@ -120,7 +120,7 @@ function ClassesPage() {
 //   };
 
   return (
-    <div className='my-28'>
+    <div className='py-28'>
         <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4 text-center">All Classs</h1>
       <table className="table w-full">

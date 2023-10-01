@@ -5,7 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      textColor: ['responsive', 'hover', 'focus', 'group-hover', 'scrolled'],
+    },
   },
   plugins: [require("daisyui")],
 }
