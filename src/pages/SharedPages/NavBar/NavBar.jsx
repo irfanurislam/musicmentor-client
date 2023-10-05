@@ -91,8 +91,8 @@ useEffect(() =>{
 
   return (
    <div className="">
-     <div className={`fixed z-10 bg-white max-w-[83rem] w-full mx-auto  ${scrolled ? 'text-blue-800 bg-black ' : 'bg-opacity-20'}`}>
-      <div className="navbar bg-base-400">
+     <div className={`fixed z-10 bg-white  max-w-[93%] w-full mx-auto  ${scrolled ? 'text-blue-800 bg-black ' : 'bg-opacity-20'}`}>
+      <div className="navbar bg-base-400 border ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
