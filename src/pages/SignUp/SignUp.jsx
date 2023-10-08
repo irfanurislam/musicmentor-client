@@ -88,7 +88,7 @@ const SignUp = () => {
 
 
   return (
-    <div className="mt-10">
+    <div className="pt-32">
       <div className="hero min-h-screen bg-base-100">
         <div className="hero-content flex-col ">
           <div className="text-center">
@@ -105,7 +105,7 @@ const SignUp = () => {
                     {...register("name", { required: true })}
                     type="text"
                     placeholder="your Name "
-                    className="input input-bordered"
+                    className="input input-bordered placeholder:text-gray-500   text-gray-900 ring-2 ring-inset ring-gray-300 "
                   />
                    {errors.name && (
                     <span className="text-error">Name Must Be required</span>
@@ -117,7 +117,7 @@ const SignUp = () => {
                   </label>
                   <select
                     {...register("gender", { required: true })}
-                    className="select select-bordered w-full max-w-xs"
+                    className="select select-bordered w-full max-w-xs ring-1"
                   >
                     <option value="female">female</option>
                     <option value="male">male</option>
@@ -135,7 +135,7 @@ const SignUp = () => {
                     type="text"
                     {...register("number", { required: true })}
                     placeholder="Number"
-                    className="input input-bordered"
+                    className="input input-bordered ring-1"
                   />
                    {errors.number && (
                     <span className="text-error">Number is required</span>
@@ -152,7 +152,7 @@ const SignUp = () => {
                     })}
                     aria-invalid={errors.mail ? "true" : "false"}
                     placeholder="email"
-                    className="input input-bordered"
+                    className="input input-bordered ring-1"
                   />
                   {errors.email && (
                     <span className="text-error">Email is required</span>
@@ -166,7 +166,7 @@ const SignUp = () => {
                     type="text"
                     {...register("photo", { required: true })}
                     placeholder="Photo Url"
-                    className="input input-bordered"
+                    className="input input-bordered ring-1"
                   />
                   {errors.photo && (
                     <span className="text-error">Photo URL is required</span>
@@ -180,7 +180,7 @@ const SignUp = () => {
                     type="text"
                     {...register("address", { required: true })}
                     placeholder="address"
-                    className="input input-bordered"
+                    className="input input-bordered ring-1"
                   />
                   {errors.address && (
                     <span className="text-error">address is required</span>
@@ -200,7 +200,7 @@ const SignUp = () => {
                       pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                     })}
                     placeholder="password"
-                    className="input input-bordered"
+                    className="input input-bordered ring-1"
                   />
                   {errors.password?.type === "required" && (
                     <p className="text-error">Password is required</p>
@@ -231,7 +231,7 @@ const SignUp = () => {
                     type="text"
                     {...register("confirmPassword", { required: true })}
                     placeholder="address"
-                    className="input input-bordered"
+                    className="input input-bordered ring-1"
                   />
                   {errors.confirmPassword && (
                     <span className="text-error">address is required</span>
@@ -243,7 +243,7 @@ const SignUp = () => {
                   <input
                     type="submit"
                     value="Sign Up"
-                    className="btn btn-primary"
+                    className="btn btn-primary ring-1"
                   />
                 </div>
                 <p className="text-center">

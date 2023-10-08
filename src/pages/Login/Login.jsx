@@ -58,7 +58,7 @@ const Login = () => {
   };
 
   return (
-    <div className="mt-10 text-black">
+    <div className="py-20 text-black">
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center">
